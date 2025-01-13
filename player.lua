@@ -68,17 +68,6 @@ function Player:setDirection()
   end
 end
 
-function Player:setNewFrame()
-  local anim = self.animation[self.state]
-
-  if anim.current < anim.total then
-    anim.current = anim.current + 1
-  else
-    anim.current = 1
-  end
-  self.animation.draw = anim.sprites[anim.current]
-end
-
 function Player:decreaseGraceTime(dt)
   if not self.grounded then
     self.graceTime = self.graceTime - dt
