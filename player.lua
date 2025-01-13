@@ -1,3 +1,4 @@
+require("animation")
 Player = {}
 
 function Player:load()
@@ -21,7 +22,16 @@ function Player:load()
   self.direction = "right"
   self.state = "idle"
 
-  self:loadAnimations()
+  self.animation = {
+    timer = 0,
+    rate = 0.1,
+    idle = Animation.loadAnimation(3, 10, 4, TileSize, SpriteSheet),
+    run = Animation.loadAnimation(7, 10, 4, TileSize, SpriteSheet),
+    jump = Animation.loadAnimation(11, 10, 2, TileSize, SpriteSheet),
+    land = Animation.loadAnimation(13, 10, 4, TileSize, SpriteSheet)
+  }
+
+  self.animation.draw = self.animation.idle.sprites[1]
 
   self.physics = {}
   self.physics.body = love.physics.newBody(World, self.x, self.y, "dynamic")
@@ -30,39 +40,12 @@ function Player:load()
   self.physics.fixture = love.physics.newFixture(self.physics.body, self.physics.shape)
 end
 
-function Player:loadAnimations()
-  self.animation = {
-    timer = 0,
-    rate = 0.1,
-    idle = self:loadAnimation(3, 10, 4),
-    run = self:loadAnimation(7, 10, 4),
-    jump = self:loadAnimation(11, 10, 2),
-    land = self:loadAnimation(13, 10, 4)
-  }
-
-  self.animation.draw = self.animation.idle.sprites[1]
-end
-
-function Player:loadAnimation(startX, startY, frameCount)
-  local frames = {}
-  for i = 1, frameCount do
-    frames[i] = love.graphics.newQuad(
-      (startX + i - 1) * TileSize,
-      startY * TileSize,
-      TileSize,
-      TileSize,
-      SpriteSheet:getDimensions()
-    )
-  end
-  return { total = frameCount, current = 1, sprites = frames }
-end
-
 function Player:update(dt)
   self:syncPhysics()
   self:move(dt)
   self:applyGravity(dt)
   self:decreaseGraceTime(dt)
-  self:animate(dt)
+  self.animation = Animation.update(self.animation, self.state, dt)
   self:setDirection()
   self:setState()
 end
@@ -82,14 +65,6 @@ function Player:setDirection()
     self.direction = "left"
   elseif self.xVel > 0 then
     self.direction = "right"
-  end
-end
-
-function Player:animate(dt)
-  self.animation.timer = self.animation.timer + dt
-  if self.animation.timer > self.animation.rate then
-    self.animation.timer = 0
-    self:setNewFrame()
   end
 end
 
