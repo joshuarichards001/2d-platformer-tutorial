@@ -1,14 +1,14 @@
 Animation = {}
 
-function Animation.loadAnimation(startX, startY, frameCount, tileSize, spriteSheet)
+function Animation.loadAnimation(startX, startY, frameCount)
   local frames = {}
   for i = 1, frameCount do
     frames[i] = love.graphics.newQuad(
-      (startX + i - 1) * tileSize,
-      startY * tileSize,
-      tileSize,
-      tileSize,
-      spriteSheet:getDimensions()
+      (startX + i - 1) * TileSize,
+      startY * TileSize,
+      TileSize,
+      TileSize,
+      SpriteSheet:getDimensions()
     )
   end
   return { total = frameCount, current = 1, sprites = frames }

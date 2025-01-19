@@ -7,12 +7,12 @@ function Player:load()
   self.width = 8
   self.height = 8
   self.xVel = 0
-  self.yVel = 000
-  self.maxSpeed = 70
+  self.yVel = 0
+  self.maxSpeed = 100
   self.acceleration = 1000
-  self.friction = 1000
+  self.friction = 1500
   self.gravity = 800
-  self.jumpAmount = -150
+  self.jumpAmount = -200
 
   self.graceTime = 0
   self.graceDuration = 0.1
@@ -25,10 +25,10 @@ function Player:load()
   self.animation = {
     timer = 0,
     rate = 0.1,
-    idle = Animation.loadAnimation(3, 10, 4, TileSize, SpriteSheet),
-    run = Animation.loadAnimation(7, 10, 4, TileSize, SpriteSheet),
-    jump = Animation.loadAnimation(11, 10, 2, TileSize, SpriteSheet),
-    land = Animation.loadAnimation(13, 10, 4, TileSize, SpriteSheet)
+    idle = Animation.loadAnimation(3, 10, 4),
+    run = Animation.loadAnimation(7, 10, 4),
+    jump = Animation.loadAnimation(11, 10, 2),
+    land = Animation.loadAnimation(13, 10, 4)
   }
 
   self.animation.draw = self.animation.idle.sprites[1]
