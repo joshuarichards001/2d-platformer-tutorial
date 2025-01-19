@@ -1,5 +1,6 @@
 local STI = require("libraries.sti")
 require("player")
+require("flower")
 love.graphics.setDefaultFilter("nearest", "nearest")
 
 function love.load()
@@ -11,11 +12,15 @@ function love.load()
   Map:box2d_init(World)
   Map.layers.solid.visible = false
   Player:load()
+  Flower.new(60, 30)
+  Flower.new(80, 60)
+  Flower.new(50, 100)
 end
 
 function love.update(dt)
   World:update(dt)
   Player:update(dt)
+  Flower.updateAll(dt)
 end
 
 function love.draw()
@@ -23,7 +28,10 @@ function love.draw()
   Map:draw(0, 0, 4)
   love.graphics.push()
   love.graphics.scale(4, 4)
+
   Player:draw()
+  Flower.drawAll()
+
   love.graphics.pop()
 end
 
@@ -32,6 +40,9 @@ function love.keypressed(key)
 end
 
 function beginContact(a, b, collision)
+  if Flower.beginContact(a, b, collision) then
+    return
+  end
   Player:beginContact(a, b, collision)
 end
 
