@@ -4,6 +4,7 @@ local Player = require("player")
 local Flower = require("flower")
 local GUI = require("gui")
 local Spike = require("spike")
+local Camera = require("camera")
 
 function love.load()
   Map = STI("map/2.lua", { "box2d" })
@@ -32,19 +33,19 @@ function love.update(dt)
   Flower.updateAll(dt)
   Spike.updateAll(dt)
   GUI:update(dt)
+  Camera:setPosition(Player.x, 0)
 end
 
 function love.draw()
   love.graphics.clear(20 / 255, 13 / 255, 29 / 255)
-  Map:draw(0, 0, 4)
-  love.graphics.push()
-  love.graphics.scale(4, 4)
+  Map:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
 
+  Camera:apply()
   Player:draw()
   Flower.drawAll()
   Spike.drawAll()
+  Camera:clear()
 
-  love.graphics.pop()
   GUI:draw()
 end
 
