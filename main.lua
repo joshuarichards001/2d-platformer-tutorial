@@ -13,6 +13,7 @@ function love.load()
   World = love.physics.newWorld(0, 0)
   World:setCallbacks(beginContact, endContact)
   Map:box2d_init(World)
+  MapWidth = Map.layers.ground.width * TileSize
   Map.layers.solid.visible = false
   Player:load()
   GUI:load()
