@@ -1,6 +1,8 @@
-Flower = {}
+local Player = require("player")
+
+local Flower = {}
 Flower.__index = Flower
-ActiveFlowers = {}
+local ActiveFlowers = {}
 
 function Flower.new(x, y)
   local instance = setmetatable({}, Flower)
@@ -30,6 +32,7 @@ end
 function Flower:remove()
   for i, instance in ipairs(ActiveFlowers) do
     if instance == self then
+      Player:incrementFlowers()
       table.remove(ActiveFlowers, i)
       self.physics.body:destroy()
       return
@@ -78,3 +81,5 @@ function Flower.beginContact(a, b, collision)
     end
   end
 end
+
+return Flower

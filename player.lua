@@ -1,9 +1,11 @@
 require("animation")
-Player = {}
+local Player = {}
 
 function Player:load()
   self.x = 120
   self.y = 50
+  self.startX = self.x
+  self.startY = self.y
   self.width = 8
   self.height = 8
   self.xVel = 0
@@ -13,9 +15,23 @@ function Player:load()
   self.friction = 1500
   self.gravity = 800
   self.jumpAmount = -200
+  self.flowers = 0
+  self.health = {
+    current = 3,
+    max = 3
+  }
+
+  self.color = {
+    red = 1,
+    green = 1,
+    blue = 1,
+    speed = 3
+  }
 
   self.graceTime = 0
   self.graceDuration = 0.1
+
+  self.alive = true
 
   self.hasDoubleJumped = false
   self.grounded = false
@@ -40,7 +56,43 @@ function Player:load()
   self.physics.fixture = love.physics.newFixture(self.physics.body, self.physics.shape)
 end
 
+function Player:takeDamage(amount)
+  self:tintRed()
+  if self.health.current - amount > 0 then
+    self.health.current = self.health.current - amount
+  else
+    self.health.current = 0
+    self:die()
+  end
+  print("Player health: " .. self.health.current)
+end
+
+function Player:die()
+  print("Player died")
+  self.alive = false
+end
+
+function Player:respawn()
+  if not self.alive then
+    self.physics.body:setPosition(self.startX, self.startY)
+    self.health.current = self.health.max
+    self.alive = true
+  end
+end
+
+function Player:tintRed()
+  self.color.red = 1
+  self.color.green = 0
+  self.color.blue = 0
+end
+
+function Player:incrementFlowers()
+  self.flowers = self.flowers + 1
+end
+
 function Player:update(dt)
+  self:untint(dt)
+  self:respawn()
   self:syncPhysics()
   self:move(dt)
   self:applyGravity(dt)
@@ -48,6 +100,12 @@ function Player:update(dt)
   self.animation = Animation.update(self.animation, self.state, dt)
   self:setDirection()
   self:setState()
+end
+
+function Player:untint(dt)
+  self.color.red = math.min(self.color.red + self.color.speed * dt, 1)
+  self.color.green = math.min(self.color.green + self.color.speed * dt, 1)
+  self.color.blue = math.min(self.color.blue + self.color.speed * dt, 1)
 end
 
 function Player:setState()
@@ -158,6 +216,10 @@ function Player:draw()
     scaleX = -1
   end
 
+  love.graphics.setColor(self.color.red, self.color.green, self.color.blue)
   love.graphics.draw(SpriteSheet, self.animation.draw, self.x, self.y, 0, scaleX, 1,
     TileSize / 2, TileSize / 2)
+  love.graphics.setColor(1, 1, 1)
 end
+
+return Player

@@ -1,10 +1,12 @@
-local STI = require("libraries.sti")
-require("player")
-require("flower")
 love.graphics.setDefaultFilter("nearest", "nearest")
+local STI = require("libraries.sti")
+local Player = require("player")
+local Flower = require("flower")
+local GUI = require("gui")
+local Spike = require("spike")
 
 function love.load()
-  Map = STI("map/1.lua", { "box2d" })
+  Map = STI("map/2.lua", { "box2d" })
   SpriteSheet = love.graphics.newImage("assets/tiles.png")
   TileSize = 8
   World = love.physics.newWorld(0, 0)
@@ -12,15 +14,24 @@ function love.load()
   Map:box2d_init(World)
   Map.layers.solid.visible = false
   Player:load()
-  Flower.new(60, 30)
-  Flower.new(80, 60)
+  GUI:load()
+  Flower.new(250, 100)
+  Flower.new(110, 30)
   Flower.new(50, 100)
+  Flower.new(180, 150)
+  Spike.new(65, 150)
+  Spike.new(55, 150)
+  Spike.new(45, 150)
+  Spike.new(35, 150)
+  Spike.new(25, 150)
 end
 
 function love.update(dt)
   World:update(dt)
   Player:update(dt)
   Flower.updateAll(dt)
+  Spike.updateAll(dt)
+  GUI:update(dt)
 end
 
 function love.draw()
@@ -31,8 +42,10 @@ function love.draw()
 
   Player:draw()
   Flower.drawAll()
+  Spike.drawAll()
 
   love.graphics.pop()
+  GUI:draw()
 end
 
 function love.keypressed(key)
@@ -40,9 +53,8 @@ function love.keypressed(key)
 end
 
 function beginContact(a, b, collision)
-  if Flower.beginContact(a, b, collision) then
-    return
-  end
+  if Flower.beginContact(a, b, collision) then return end
+  if Spike.beginContact(a, b, collision) then return end
   Player:beginContact(a, b, collision)
 end
 
