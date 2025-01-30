@@ -89,7 +89,7 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="25" x="296.097" y="72.1586" width="24.7373" height="8.22857">
+  <object id="25" x="296.097" y="73.2427" width="24.7373" height="7.14442">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
@@ -134,7 +134,7 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="34" x="199.864" y="56.1827" width="119.774" height="7.49657">
+  <object id="34" x="199.864" y="56.1827" width="119.774" height="6.50277">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>

@@ -9,8 +9,8 @@ return {
   height = 23,
   tilewidth = 8,
   tileheight = 8,
-  nextlayerid = 3,
-  nextobjectid = 18,
+  nextlayerid = 4,
+  nextobjectid = 33,
   properties = {},
   tilesets = {
     {
@@ -327,6 +327,139 @@ return {
           properties = {
             ["collidable"] = true
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 3,
+      name = "entity",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 18,
+          name = "flower",
+          type = "flower",
+          shape = "ellipse",
+          x = 104.209,
+          y = 95.0441,
+          width = 7.12831,
+          height = 7.46775,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 22,
+          name = "flower",
+          type = "flower",
+          shape = "ellipse",
+          x = 191.276,
+          y = 94.7047,
+          width = 7.12831,
+          height = 7.46775,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 24,
+          name = "flower",
+          type = "flower",
+          shape = "ellipse",
+          x = 271.385,
+          y = 94.7047,
+          width = 7.12831,
+          height = 7.46775,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 25,
+          name = "stone",
+          type = "stone",
+          shape = "rectangle",
+          x = 151.392,
+          y = 53.9715,
+          width = 8.14664,
+          height = 7.46775,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 27,
+          name = "stone",
+          type = "stone",
+          shape = "rectangle",
+          x = 239.308,
+          y = 54.9898,
+          width = 8.14664,
+          height = 7.46775,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 28,
+          name = "spikes",
+          type = "spike",
+          shape = "rectangle",
+          x = 150.713,
+          y = 148.337,
+          width = 11.2016,
+          height = 10.1833,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 30,
+          name = "spikes",
+          type = "spike",
+          shape = "rectangle",
+          x = 164.46,
+          y = 148.676,
+          width = 11.2016,
+          height = 10.1833,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 31,
+          name = "spikes",
+          type = "spike",
+          shape = "rectangle",
+          x = 177.359,
+          y = 148.676,
+          width = 11.2016,
+          height = 10.1833,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 32,
+          name = "spikes",
+          type = "spike",
+          shape = "rectangle",
+          x = 192.295,
+          y = 148.337,
+          width = 11.2016,
+          height = 10.1833,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

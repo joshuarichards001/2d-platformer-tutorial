@@ -16,18 +16,10 @@ function love.load()
   Map:box2d_init(World)
   MapWidth = Map.layers.ground.width * TileSize
   Map.layers.solid.visible = false
+  Map.layers.entity.visible = false
   Player:load()
   GUI:load()
-  Flower.new(250, 100)
-  Flower.new(350, 30)
-  Flower.new(500, 50)
-  Flower.new(180, 150)
-  Spike.new(40+65, 150)
-  Spike.new(40+55, 150)
-  Spike.new(40+45, 150)
-  Spike.new(40+35, 150)
-  Spike.new(40+25, 150)
-  Stone.new(200, 100)
+  spawnEntities()
 end
 
 function love.update(dt)
@@ -66,4 +58,16 @@ end
 
 function endContact(a, b, collision)
   Player:endContact(a, b, collision)
+end
+
+function spawnEntities()
+  for i, v in ipairs(Map.layers.entity.objects) do
+    if v.type == "flower" then
+      Flower.new(v.x, v.y)
+    elseif v.type == "spike" then
+      Spike.new(v.x + v.width / 2, v.y + v.height / 2)
+    elseif v.type == "stone" then
+      Stone.new(v.x + v.width / 2, v.y + v.height / 2)
+    end
+  end
 end

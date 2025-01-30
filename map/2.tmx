@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="3" nextobjectid="18">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="33">
  <editorsettings>
   <export target="2.lua" format="lua"/>
  </editorsettings>
@@ -112,5 +112,22 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup color="#9150c3" id="3" name="entity">
+  <object id="18" name="flower" type="flower" x="104.209" y="95.0441" width="7.12831" height="7.46775">
+   <ellipse/>
+  </object>
+  <object id="22" name="flower" type="flower" x="191.276" y="94.7047" width="7.12831" height="7.46775">
+   <ellipse/>
+  </object>
+  <object id="24" name="flower" type="flower" x="271.385" y="94.7047" width="7.12831" height="7.46775">
+   <ellipse/>
+  </object>
+  <object id="25" name="stone" type="stone" x="151.392" y="53.9715" width="8.14664" height="7.46775"/>
+  <object id="27" name="stone" type="stone" x="239.308" y="54.9898" width="8.14664" height="7.46775"/>
+  <object id="28" name="spikes" type="spike" x="150.713" y="148.337" width="11.2016" height="10.1833"/>
+  <object id="30" name="spikes" type="spike" x="164.46" y="148.676" width="11.2016" height="10.1833"/>
+  <object id="31" name="spikes" type="spike" x="177.359" y="148.676" width="11.2016" height="10.1833"/>
+  <object id="32" name="spikes" type="spike" x="192.295" y="148.337" width="11.2016" height="10.1833"/>
  </objectgroup>
 </map>
