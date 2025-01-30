@@ -14,7 +14,11 @@ function Enemy.new(x, y)
   instance.r = 0
 
   instance.speed = 50
+  instance.speedMod = 1
   instance.xVel = instance.speed
+
+  instance.rageCounter = 0
+  instance.rageTrigger = 3
 
   instance.damage = 1
 
@@ -40,6 +44,16 @@ function Enemy:update(dt)
   self.animation = Animation.update(self.animation, "run", dt)
 end
 
+function Enemy:incrementRage()
+  self.rageCounter = self.rageCounter + 1
+  if self.rageCounter > self.rageTrigger then
+    self.speedMod = 2
+    self.rageCounter = 0
+  else
+    self.speedMod = 1
+  end
+end
+
 function Enemy:flip()
   self.xVel = -self.xVel
   print(self.xVel)
@@ -47,7 +61,7 @@ end
 
 function Enemy:syncPhysics()
   self.x, self.y = self.physics.body:getPosition()
-  self.physics.body:setLinearVelocity(self.xVel, 100)
+  self.physics.body:setLinearVelocity(self.xVel * self.speedMod, 100)
 end
 
 function Enemy:draw()
@@ -79,6 +93,7 @@ function Enemy.beginContact(a, b, collision)
         Player:takeDamage(instance.damage)
       end
 
+      instance:incrementRage()
       instance:flip()
     end
   end
