@@ -9,8 +9,8 @@ return {
   height = 23,
   tilewidth = 8,
   tileheight = 8,
-  nextlayerid = 3,
-  nextobjectid = 35,
+  nextlayerid = 4,
+  nextobjectid = 39,
   properties = {},
   tilesets = {
     {
@@ -51,7 +51,7 @@ return {
       width = 40,
       height = 23,
       id = 1,
-      name = "Tile Layer 1",
+      name = "ground",
       class = "",
       visible = true,
       opacity = 1,
@@ -85,6 +85,61 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 3,
+      name = "entity",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 35,
+          name = "flower",
+          type = "flower",
+          shape = "ellipse",
+          x = 36.2137,
+          y = 125.355,
+          width = 11.1427,
+          height = 10.5855,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 37,
+          name = "flower",
+          type = "flower",
+          shape = "ellipse",
+          x = 108.084,
+          y = 73.2632,
+          width = 11.1427,
+          height = 10.5855,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 38,
+          name = "flower",
+          type = "flower",
+          shape = "ellipse",
+          x = 269.096,
+          y = 94.9914,
+          width = 11.1427,
+          height = 10.5855,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
       }
     },
     {

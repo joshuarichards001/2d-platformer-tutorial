@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="3" nextobjectid="35">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="39">
  <editorsettings>
   <export target="1.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" name="tiles" tilewidth="8" tileheight="8" tilecount="216" columns="18">
   <image source="../assets/tiles.png" width="144" height="96"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="40" height="23">
+ <layer id="1" name="ground" width="40" height="23">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,68,68,68,68,68,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -33,6 +33,17 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,0,0,0,0,0,0,49,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="3" name="entity">
+  <object id="35" name="flower" type="flower" x="36.2137" y="125.355" width="11.1427" height="10.5855">
+   <ellipse/>
+  </object>
+  <object id="37" name="flower" type="flower" x="108.084" y="73.2632" width="11.1427" height="10.5855">
+   <ellipse/>
+  </object>
+  <object id="38" name="flower" type="flower" x="269.096" y="94.9914" width="11.1427" height="10.5855">
+   <ellipse/>
+  </object>
+ </objectgroup>
  <objectgroup color="#ff000c" id="2" name="solid">
   <object id="2" x="96.25" y="88.125" width="39.5" height="15.625">
    <properties>

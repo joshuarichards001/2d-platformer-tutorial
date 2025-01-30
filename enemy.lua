@@ -44,6 +44,13 @@ function Enemy:update(dt)
   self.animation = Animation.update(self.animation, "run", dt)
 end
 
+function Enemy.removeAll()
+  for i, instance in ipairs(ActiveEnemies) do
+    instance.physics.body:destroy()
+  end
+  ActiveEnemies = {}
+end
+
 function Enemy:incrementRage()
   self.rageCounter = self.rageCounter + 1
   if self.rageCounter > self.rageTrigger then
@@ -56,7 +63,6 @@ end
 
 function Enemy:flip()
   self.xVel = -self.xVel
-  print(self.xVel)
 end
 
 function Enemy:syncPhysics()

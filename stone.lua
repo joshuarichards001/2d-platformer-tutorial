@@ -31,6 +31,13 @@ function Stone:update(dt)
   self:syncPhysics()
 end
 
+function Stone.removeAll()
+  for i, instance in ipairs(ActiveStones) do
+    instance.physics.body:destroy()
+  end
+  ActiveStones = {}
+end
+
 function Stone:syncPhysics()
   self.x, self.y = self.physics.body:getPosition()
   self.r = self.physics.body:getAngle()

@@ -34,6 +34,13 @@ function Spike:update(dt)
 
 end
 
+function Spike.removeAll()
+  for i, instance in ipairs(ActiveSpikes) do
+    instance.physics.body:destroy()
+  end
+  ActiveSpikes = {}
+end
+
 function Spike:draw()
   love.graphics.draw(SpriteSheet, self.sprite, self.x, self.y, 0, self.scale, 1, self.width / 2, self.height / 2)
 end

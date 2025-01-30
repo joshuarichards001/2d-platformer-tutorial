@@ -40,6 +40,13 @@ function Flower:remove()
   end
 end
 
+function Flower.removeAll()
+  for i, instance in ipairs(ActiveFlowers) do
+    instance.physics.body:destroy()
+  end
+  ActiveFlowers = {}
+end
+
 function Flower:update(dt)
   self:spin(dt)
   self:checkRemove()
