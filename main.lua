@@ -6,6 +6,7 @@ local GUI = require("gui")
 local Spike = require("spike")
 local Camera = require("camera")
 local Stone = require("stone")
+local Enemy = require("enemy")
 
 function love.load()
   Map = STI("map/2.lua", { "box2d" })
@@ -28,6 +29,7 @@ function love.update(dt)
   Flower.updateAll(dt)
   Spike.updateAll(dt)
   Stone.updateAll(dt)
+  Enemy.updateAll(dt)
   GUI:update(dt)
   Camera:setPosition(Player.x, 0)
 end
@@ -41,6 +43,7 @@ function love.draw()
   Flower.drawAll()
   Spike.drawAll()
   Stone.drawAll()
+  Enemy.drawAll()
   Camera:clear()
 
   GUI:draw()
@@ -68,6 +71,8 @@ function spawnEntities()
       Spike.new(v.x + v.width / 2, v.y + v.height / 2)
     elseif v.type == "stone" then
       Stone.new(v.x + v.width / 2, v.y + v.height / 2)
+    elseif v.type == "enemy" then
+      Enemy.new(v.x + v.width / 2, v.y + v.height / 2)
     end
   end
 end
