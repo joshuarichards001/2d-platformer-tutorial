@@ -10,7 +10,7 @@ return {
   tilewidth = 8,
   tileheight = 8,
   nextlayerid = 4,
-  nextobjectid = 35,
+  nextobjectid = 39,
   properties = {},
   tilesets = {
     {
@@ -124,7 +124,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 47.6476,
-          y = 24.1561,
+          y = 24.4955,
           width = 8.03805,
           height = 135.688,
           rotation = 0,
@@ -462,19 +462,6 @@ return {
           properties = {}
         },
         {
-          id = 33,
-          name = "enemy",
-          type = "enemy",
-          shape = "rectangle",
-          x = 98.778,
-          y = 147.658,
-          width = 13.5777,
-          height = 11.2016,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 34,
           name = "",
           type = "",
@@ -483,6 +470,32 @@ return {
           y = -33.6049,
           width = 0,
           height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 36,
+          name = "enemy",
+          type = "enemy",
+          shape = "point",
+          x = 101.494,
+          y = 140.53,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 38,
+          name = "spikes",
+          type = "spike",
+          shape = "rectangle",
+          x = 58.2145,
+          y = 151.052,
+          width = 11.2016,
+          height = 10.1833,
           rotation = 0,
           visible = true,
           properties = {}

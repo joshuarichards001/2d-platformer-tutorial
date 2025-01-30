@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="35">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="4" nextobjectid="39">
  <editorsettings>
   <export target="2.lua" format="lua"/>
  </editorsettings>
@@ -42,7 +42,7 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="3" x="47.6476" y="24.1561" width="8.03805" height="135.688">
+  <object id="3" x="47.6476" y="24.4955" width="8.03805" height="135.688">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>
@@ -129,7 +129,10 @@
   <object id="30" name="spikes" type="spike" x="164.46" y="148.676" width="11.2016" height="10.1833"/>
   <object id="31" name="spikes" type="spike" x="177.359" y="148.676" width="11.2016" height="10.1833"/>
   <object id="32" name="spikes" type="spike" x="192.295" y="148.337" width="11.2016" height="10.1833"/>
-  <object id="33" name="enemy" type="enemy" x="98.778" y="147.658" width="13.5777" height="11.2016"/>
   <object id="34" x="86.2186" y="-33.6049"/>
+  <object id="36" name="enemy" type="enemy" x="101.494" y="140.53">
+   <point/>
+  </object>
+  <object id="38" name="spikes" type="spike" x="58.2145" y="151.052" width="11.2016" height="10.1833"/>
  </objectgroup>
 </map>
